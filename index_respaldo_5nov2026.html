@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo maestro de comandos, atajos y códigos para IA</title>
+<style>
+:root{--bg:#f4f5f8;--panel:#fff;--ink:#18202b;--muted:#657184;--line:#dfe4eb;--accent:#4c43b8;--soft:#eeedff;--green:#147a52;--amber:#986000;--red:#a43b3b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:#17172b;color:#fff;padding:32px max(20px,calc((100% - 1180px)/2)) 26px}
+header h1{font-size:clamp(25px,4vw,40px);line-height:1.12;margin:0 0 10px}header p{max-width:900px;color:#d8d8e9;margin:0}
+.wrap{max-width:1180px;margin:auto;padding:22px 18px 60px}
+.notice{background:#fff8e8;border:1px solid #f0d79d;border-radius:12px;padding:14px 16px;margin:0 0 18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px}.stat b{display:block;font-size:24px}.stat span{color:var(--muted);font-size:12px}
+.toolbar{position:sticky;top:0;z-index:5;background:#f4f5f8;padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:9px}
+input,select,button{font:inherit;border:1px solid #cbd2dc;border-radius:9px;padding:10px;background:#fff;color:var(--ink)}
+button{cursor:pointer}button:hover{border-color:var(--accent);background:var(--soft)}
+.section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin:18px 0}
+.section h2{font-size:21px;margin:0 0 8px}.section p{margin:6px 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.item{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.code{font-weight:750;font-size:17px;overflow-wrap:anywhere}
+.desc{margin:8px 0;color:#3d4858}.meta{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+.tag{font-size:11px;padding:3px 7px;border-radius:20px;background:#eef1f5;color:#465164}
+.tag.official{background:#e5f5ed;color:var(--green)}.tag.community{background:#eeedff;color:#5146a7}.tag.uncertain{background:#fff2dc;color:var(--amber)}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.actions button{font-size:12px;padding:7px 9px}
+.empty{padding:35px;text-align:center;color:var(--muted);display:none}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin:10px 0}
+summary{font-weight:700;cursor:pointer}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#17172b;color:#f2f2fb;padding:14px;border-radius:10px}
+a{color:var(--accent)}footer{color:var(--muted);font-size:13px;margin-top:25px}
+@media(max-width:760px){.toolbar{grid-template-columns:1fr 1fr}.toolbar input{grid-column:1/-1}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+@media print{.toolbar,.actions{display:none}.item{break-inside:avoid}.wrap{max-width:none}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>Catálogo maestro de comandos, atajos y códigos para IA</h1>
+<p>Edición de trabajo · 5 de noviembre de 2026 · 292 etiquetas únicas en 11 familias. Incluye comandos de interfaz documentados en entornos concretos, atajos comunitarios, formatos, métodos y códigos visuales. Buscador, filtros y botones para copiar.</p>
+</header>
+<div class="wrap">
+<div class="notice"><b>Regla de honestidad:</b> no existe un registro universal de todos los códigos que circulan en Internet. Un alias como <code>/mind-map</code> o <code>/truth</code> no desbloquea una función secreta por llevar una barra. Si el modelo entiende la etiqueta, la interpreta como instrucción. Los comandos nativos solo funcionan en la aplicación y el entorno que los implementan. Este catálogo reúne usos documentados y variantes; no promete que cada alias sea reconocido automáticamente.</div>
+<div class="stats">
+<div class="stat"><b id="countAll">292</b><span>entradas del catálogo</span></div>
+<div class="stat"><b>11</b><span>familias temáticas</span></div>
+<div class="stat"><b>2</b><span>códigos de tus capturas incluidos</span></div>
+<div class="stat"><b>3</b><span>niveles de verificación</span></div>
+</div>
+<div class="section">
+<h2>Cómo usar un atajo</h2>
+<p>Escribe el alias seguido de tu tarea. Para que sea fiable, añade una instrucción que explique el resultado, el formato, los límites y cómo comprobarlo. Puedes copiar solo el código o una instrucción lista para pegar desde cada ficha.</p>
+<pre>/mind-map
+Tema: modelo de ingresos de un negocio digital.
+Crea un mapa con concepto central, ramas, subramas,
+relaciones, dependencias y riesgos. No inventes datos.
+Entrega también una versión textual jerárquica.</pre>
+<p><b>Prueba de funcionamiento:</b> si la interfaz muestra un menú de comandos al escribir <code>/</code>, el elemento pertenece a su lista nativa. Si no aparece, el texto puede seguir funcionando como instrucción, pero no como comando de interfaz.</p>
+</div>
+<div class="toolbar">
+<input id="q" type="search" placeholder="Buscar código, variante o función…">
+<select id="cat"><option value="">Todas las categorías</option></select>
+<select id="kind"><option value="">Todos los tipos</option><option value="official">Interfaz documentada</option><option value="community">Atajo / método / formato</option><option value="uncertain">Ambiguo o requiere definición</option></select>
+<button id="clear">Limpiar</button>
+</div>
+<div id="results" class="grid"></div><div id="empty" class="empty">No hay coincidencias. Prueba otra palabra o limpia los filtros.</div>
+<div class="section">
+<h2>Comandos de interfaz: no confundir entornos</h2>
+<p>La referencia consultada de slash commands describe una lista para la aplicación de escritorio y entornos de desarrollo. Incluye comandos como <code>/plan</code>, <code>/goal</code>, <code>/model</code>, <code>/reasoning</code>, <code>/status</code>, <code>/archive</code>, <code>/rename</code>, <code>/review</code>, <code>/mcp</code>, <code>/worktree</code> y otros. La propia referencia advierte que la disponibilidad depende del entorno y el acceso. No des por hecho que esa lista aparece en la app móvil estándar.</p>
+<p>En ChatGPT también existen capacidades de producto como búsqueda web, investigación profunda, análisis de datos, carga de archivos, imágenes, voz, memoria, proyectos y tareas programadas, sujetas a disponibilidad y configuración. Se solicitan por la interfaz o describiendo la tarea; no necesitan inventar un slash code.</p>
+</div>
+<div class="section">
+<h2>Fuentes y criterios</h2>
+<ol>
+<li><a href="https://learn.chatgpt.com/docs/reference/slash-commands" target="_blank" rel="noopener">Referencia de slash commands de ChatGPT Learn</a>: comandos de interfaz y condiciones de disponibilidad.</li>
+<li><a href="https://help.openai.com/en/articles/9260256-chatgpt-capabilities-overview" target="_blank" rel="noopener">OpenAI Help Center: descripción de capacidades de ChatGPT</a>: herramientas y funciones de producto.</li>
+<li><a href="https://www.wikiprompt.org/chatgpt-slash-command-cheat-sheet" target="_blank" rel="noopener">Wikiprompt: recopilación de atajos</a>: etiquetas comunitarias de escritura, análisis y productividad.</li>
+<li><a href="https://github.com/Ronit049/ChatGPT-Command-Library" target="_blank" rel="noopener">GitHub: ChatGPT Command Library</a>: catálogo comunitario de códigos visuales, análisis y flujos.</li>
+<li><a href="https://shortblogging.com/cheat-codes/chatgpt-cheat-codes" target="_blank" rel="noopener">Shortblogging: Cheat Codes Library</a>: ejemplos de atajos comunitarios y advertencia de que no son comandos oficiales.</li>
+<li><a href="https://www.billlayneinsurance.com/resources/chatgpt-prompt-shortcuts/" target="_blank" rel="noopener">Bill Layne: 610 prompt shortcuts</a>: recopilación amplia de etiquetas de comunidad; no equivale a 610 funciones nativas.</li>
+<li><a href="https://www.ecms.nz/techtahi/share.php?action=view&dir=asc&file=ChatGPT_Prompt___Command_Reference.html&sort=name" target="_blank" rel="noopener">Interactive prompt cheat sheet</a>: referencia de patrones de prompts y distinción entre atajos y capacidades de interfaz.</li>
+</ol>
+<p><b>Criterio editorial:</b> se consolidaron variantes ortográficas y se marcaron usos ambiguos. Las descripciones explican la intención que suele asociarse a cada etiqueta; no certifican que exista un parser especial detrás de ella. Los nombres de estilo visual describen resultados solicitados, no algoritmos internos ni controles ocultos.</p>
+</div>
+<footer>Documento HTML autónomo. Los filtros funcionan localmente en el navegador; no envía tus búsquedas a ningún servidor. Para conservarlo, guarda este archivo. Para imprimir o guardar como PDF, usa la opción Imprimir del navegador.</footer>
+</div>
+<script>
+const DATA = [  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/approve",
+    "description": "Aprobar un reintento de una revisión automática cuando esa función esté activa.",
+    "status": "Interfaz; no es un modificador de texto."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/archive",
+    "description": "Archivar la conversación actual.",
+    "status": "Interfaz; disponibilidad según entorno."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/chat",
+    "description": "Elegir un chat fuera de un proyecto antes de iniciar uno nuevo.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/cloud",
+    "description": "Ejecutar el chat en la nube cuando esté disponible.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/cloud-environment",
+    "description": "Elegir el entorno de ejecución en la nube.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/compact",
+    "description": "Compactar el contexto de la conversación.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/fast",
+    "description": "Activar o desactivar un nivel de servicio rápido cuando esté disponible.",
+    "status": "Interfaz; disponibilidad variable."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/feedback",
+    "description": "Abrir el diálogo para enviar comentarios.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/fork",
+    "description": "Copiar un chat local a un chat o árbol de trabajo nuevo.",
+    "status": "Interfaz; entorno de desarrollo."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/goal",
+    "description": "Definir un objetivo persistente para que ChatGPT trabaje hacia él.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/ide-context",
+    "description": "Activar o desactivar el contexto compartido del IDE.",
+    "status": "Interfaz; entorno de desarrollo."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/init",
+    "description": "Generar un archivo inicial AGENTS.md para un proyecto.",
+    "status": "Interfaz; entorno de desarrollo."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/local",
+    "description": "Ejecutar el chat en el proyecto local seleccionado.",
+    "status": "Interfaz; entorno de desarrollo."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/mcp",
+    "description": "Consultar el estado de servidores MCP conectados.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/memories",
+    "description": "Configurar el uso o creación de memorias cuando esté disponible.",
+    "status": "Interfaz; disponibilidad variable."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/model",
+    "description": "Elegir el modelo de la conversación.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/new",
+    "description": "Iniciar un chat en blanco en el mismo espacio local.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/pet",
+    "description": "Mostrar u ocultar la mascota de escritorio.",
+    "status": "Interfaz; entorno específico."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/pin",
+    "description": "Fijar o desfijar la conversación.",
+    "status": "Interfaz; disponibilidad variable."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/plan",
+    "description": "Entrar en modo de planificación.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/project",
+    "description": "Elegir un proyecto para nuevas conversaciones.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/reasoning",
+    "description": "Elegir el nivel de razonamiento cuando el entorno lo permita.",
+    "status": "Interfaz; disponibilidad variable."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/rename",
+    "description": "Cambiar el nombre de la conversación.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/review",
+    "description": "Iniciar una revisión de código.",
+    "status": "Interfaz; entorno de desarrollo."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/side",
+    "description": "Abrir un chat lateral temporal.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/status",
+    "description": "Consultar identificador, contexto y límites de uso en el entorno compatible.",
+    "status": "Interfaz; entorno específico."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/usage",
+    "description": "Abrir configuración de uso y facturación.",
+    "status": "Interfaz; entorno compatible."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "/worktree",
+    "description": "Ejecutar el chat en un nuevo Git worktree.",
+    "status": "Interfaz; entorno de desarrollo."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "$skill",
+    "description": "Invocar una habilidad habilitada en entornos que admiten el prefijo $.",
+    "status": "Sintaxis de habilidades; depende del entorno."
+  },
+  {
+    "category": "Interfaz y comandos documentados (entornos específicos)",
+    "code": "@app",
+    "description": "Invocar una aplicación/conector disponible cuando la interfaz lo admita.",
+    "status": "Interfaz; depende de las aplicaciones conectadas."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/truth",
+    "description": "Pedir una respuesta franca y separar hechos, inferencias y dudas.",
+    "status": "Alias comunitario; no garantiza verdad."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/truthmode",
+    "description": "Pedir evaluación directa con evidencia, supuestos e incertidumbre.",
+    "status": "Alias comunitario; no garantiza veracidad."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/nofluff",
+    "description": "Eliminar relleno y centrarse en información útil.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/human",
+    "description": "Buscar una redacción natural y menos mecánica.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/deep",
+    "description": "Pedir profundidad y desarrollo de mecanismos.",
+    "status": "Alias comunitario; define alcance."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/deepdive",
+    "description": "Solicitar análisis exhaustivo del tema.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/verify",
+    "description": "Comprobar afirmaciones y señalar qué no se pudo verificar.",
+    "status": "Alias comunitario; requiere fuentes/herramientas."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/factcheck",
+    "description": "Contrastar afirmaciones con evidencia.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/sources",
+    "description": "Solicitar fuentes y referencias para las afirmaciones verificables.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/critic",
+    "description": "Buscar debilidades, errores y fallas de un argumento.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/skeptic",
+    "description": "Cuestionar premisas y pedir evidencia.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/devil",
+    "description": "Construir el argumento contrario.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/devilsadvocate",
+    "description": "Defender la postura opuesta para probar una idea.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/steelman",
+    "description": "Construir la versión más sólida de una postura.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/contrarian",
+    "description": "Explorar perspectivas contrarias a la convencional.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/assumptions",
+    "description": "Identificar supuestos explícitos e implícitos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/blindspot",
+    "description": "Detectar puntos ciegos y variables ignoradas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/unknown",
+    "description": "Identificar datos faltantes y preguntas sin resolver.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/proof",
+    "description": "Pedir pruebas, demostraciones o fundamentos.",
+    "status": "Alias comunitario; no sustituye evidencia."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/logic",
+    "description": "Revisar coherencia lógica y detectar saltos argumentales.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/audit",
+    "description": "Auditar errores, contradicciones, riesgos y omisiones.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/forensic",
+    "description": "Analizar documentos o datos con enfoque forense.",
+    "status": "Alias comunitario; no es peritaje oficial."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/redteam",
+    "description": "Intentar romper una idea, sistema o plan para descubrir fallas.",
+    "status": "Método de análisis; no es comando nativo."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/premortem",
+    "description": "Imaginar que el plan fracasó y explicar causas plausibles.",
+    "status": "Método de análisis."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/second-order",
+    "description": "Analizar consecuencias indirectas y de segundo orden.",
+    "status": "Método de análisis."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/edge-cases",
+    "description": "Buscar casos límite que podrían romper una solución.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/risk",
+    "description": "Identificar y clasificar riesgos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/odds",
+    "description": "Estimar probabilidades y explicitar supuestos.",
+    "status": "Alias comunitario; no produce probabilidades calibradas."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/tradeoff",
+    "description": "Comparar beneficios, costos y sacrificios.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/reverse",
+    "description": "Resolver hacia atrás desde el resultado deseado.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/rootcause",
+    "description": "Buscar la causa raíz del problema.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/fivewhys",
+    "description": "Aplicar la técnica de los cinco porqués.",
+    "status": "Método de análisis."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/sensitivity",
+    "description": "Evaluar cómo cambian resultados al modificar variables.",
+    "status": "Método de análisis."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/scenario",
+    "description": "Construir escenarios alternativos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Razonamiento, rigor y verificación",
+    "code": "/simulate",
+    "description": "Simular escenarios o conversaciones bajo supuestos declarados.",
+    "status": "Alias comunitario; simulación no es predicción."
+  },  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/eli5",
+    "description": "Explicar como para una persona de cinco años, sin tecnicismos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/eli10",
+    "description": "Explicar con sencillez para alguien de diez años.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/teacher",
+    "description": "Explicar como docente, con estructura y ejemplos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/teach",
+    "description": "Enseñar paso a paso un tema o habilidad.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/teachme",
+    "description": "Crear una explicación didáctica progresiva.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/tutor",
+    "description": "Actuar como tutor y adaptar la explicación a las respuestas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/study",
+    "description": "Crear una estrategia o plan de estudio.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/studyguide",
+    "description": "Crear una guía de estudio organizada.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/quiz",
+    "description": "Generar preguntas para evaluar conocimientos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/quizme",
+    "description": "Evaluar una pregunta a la vez y adaptar dificultad.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/flashcards",
+    "description": "Crear tarjetas de estudio de pregunta y respuesta.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/memorypalace",
+    "description": "Organizar información mediante asociaciones espaciales.",
+    "status": "Técnica mnemónica."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/storymode",
+    "description": "Explicar mediante una historia didáctica.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/socratic",
+    "description": "Enseñar mediante preguntas guiadas.",
+    "status": "Método didáctico."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/analogy",
+    "description": "Explicar usando analogías y límites de la comparación.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/examples",
+    "description": "Incluir ejemplos concretos y variados.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/stepbystep",
+    "description": "Desglosar un procedimiento en pasos secuenciales.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/simplify",
+    "description": "Simplificar sin eliminar precisión esencial.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/shrink",
+    "description": "Reducir la respuesta conservando lo importante.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/summarize",
+    "description": "Resumir contenido.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/detailed",
+    "description": "Solicitar una explicación amplia y detallada.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/brief",
+    "description": "Solicitar una respuesta breve.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Explicación, aprendizaje y memoria",
+    "code": "/decode",
+    "description": "Traducir lenguaje técnico o ambiguo a lenguaje claro.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/rewrite",
+    "description": "Reescribir un texto según un objetivo.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/editor",
+    "description": "Editar claridad, estructura y calidad.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/proofread",
+    "description": "Corregir ortografía, gramática y puntuación.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/polish",
+    "description": "Pulir una versión final.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/professional",
+    "description": "Usar tono profesional.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/casual",
+    "description": "Usar tono conversacional.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/friendly",
+    "description": "Usar tono cordial y cercano.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/persuasive",
+    "description": "Hacer el texto más persuasivo sin inventar pruebas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/concise",
+    "description": "Eliminar palabras innecesarias.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/tone",
+    "description": "Ajustar el tono a una audiencia definida.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/storyteller",
+    "description": "Convertir información en narración.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/hook",
+    "description": "Crear aperturas que capten atención.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/headline",
+    "description": "Proponer titulares.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/caption",
+    "description": "Redactar pies de foto o publicaciones.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/email",
+    "description": "Redactar un correo con asunto y propósito.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/copywriter",
+    "description": "Redactar textos comerciales y publicitarios.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/script",
+    "description": "Crear guiones para video, audio o presentación.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/briefing",
+    "description": "Preparar un documento de instrucciones o contexto.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/executivebrief",
+    "description": "Preparar un resumen ejecutivo para decisión.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Escritura, edición y comunicación",
+    "code": "/ultimate",
+    "description": "Pedir una respuesta completa; hay que definir el alcance.",
+    "status": "Alias comunitario; nombre ambiguo."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/planner",
+    "description": "Construir un plan accionable.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/strategy",
+    "description": "Diseñar una estrategia con objetivos y restricciones.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/roadmap",
+    "description": "Crear una hoja de ruta por fases.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/action",
+    "description": "Convertir ideas en acciones concretas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/actionplan",
+    "description": "Crear un plan de acción secuenciado.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/prioritize",
+    "description": "Ordenar tareas según criterios explícitos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/focus",
+    "description": "Identificar el foco principal y reducir distracciones.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/productivity",
+    "description": "Mejorar un flujo de trabajo o rutina.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/time",
+    "description": "Crear una planificación del tiempo.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/decision",
+    "description": "Estructurar una decisión y sus criterios.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/decisiontree",
+    "description": "Construir un árbol de decisiones.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/decisionmatrix",
+    "description": "Comparar opciones mediante criterios y ponderaciones.",
+    "status": "Método de decisión."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/checklist",
+    "description": "Crear una lista verificable de requisitos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/template",
+    "description": "Crear una plantilla reutilizable.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/framework",
+    "description": "Organizar un problema mediante un marco de trabajo.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/workflow",
+    "description": "Convertir una tarea en un flujo de trabajo.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/sop",
+    "description": "Redactar un procedimiento operativo estándar.",
+    "status": "Sigla de Standard Operating Procedure."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/playbook",
+    "description": "Crear un manual operativo repetible.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/automate",
+    "description": "Detectar tareas que podrían automatizarse.",
+    "status": "Alias comunitario; no ejecuta automatizaciones por sí solo."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/optimize",
+    "description": "Mejorar un proceso bajo restricciones definidas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/gap-analysis",
+    "description": "Comparar situación actual contra objetivo.",
+    "status": "Método de análisis."
+  },
+  {
+    "category": "Productividad, decisiones y organización",
+    "code": "/matrix",
+    "description": "Organizar elementos en una matriz.",
+    "status": "Alias comunitario."
+  },  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/ceo",
+    "description": "Analizar desde la perspectiva de dirección ejecutiva.",
+    "status": "Alias comunitario; no confiere experiencia real."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/expert",
+    "description": "Pedir enfoque especializado y declarar límites.",
+    "status": "Alias comunitario; no acredita pericia."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/consultant",
+    "description": "Solicitar recomendaciones estructuradas de consultoría.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/mentor",
+    "description": "Solicitar orientación y retroalimentación.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/coach",
+    "description": "Solicitar acompañamiento práctico y objetivos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/business",
+    "description": "Analizar o desarrollar un negocio.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/startup",
+    "description": "Evaluar una idea de empresa emergente.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/businessmodel",
+    "description": "Describir un modelo de negocio y sus componentes.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/pricing",
+    "description": "Diseñar o analizar precios.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/sales",
+    "description": "Crear mensajes y procesos comerciales.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/offer",
+    "description": "Diseñar una oferta comercial.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/funnel",
+    "description": "Diseñar un embudo de conversión.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/growth",
+    "description": "Buscar oportunidades de crecimiento.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/market",
+    "description": "Analizar mercado y demanda.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/competitor",
+    "description": "Analizar competidores.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/benchmark",
+    "description": "Comparar con referentes o competidores.",
+    "status": "Método de comparación."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/audience",
+    "description": "Analizar público objetivo.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/customer",
+    "description": "Analizar desde la perspectiva del cliente.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/seo",
+    "description": "Optimizar contenido para motores de búsqueda.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/viral",
+    "description": "Proponer contenido con potencial de difusión; no garantiza viralidad.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/content",
+    "description": "Diseñar una estrategia de contenidos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/calendar",
+    "description": "Crear un calendario editorial o comercial.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/brand",
+    "description": "Desarrollar identidad y mensajes de marca.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/instagram",
+    "description": "Crear contenido para Instagram.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/linkedin",
+    "description": "Crear contenido para LinkedIn.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/youtube",
+    "description": "Crear contenido para YouTube.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/reels",
+    "description": "Proponer guiones o ideas para Reels.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/metaads",
+    "description": "Estructurar ideas de anuncios para Meta; no accede a tu cuenta.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/productad",
+    "description": "Crear un concepto publicitario de producto.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Negocios, ventas y marketing",
+    "code": "/adcreative",
+    "description": "Proponer variantes creativas para anuncios.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/research",
+    "description": "Investigar un tema con fuentes y preguntas delimitadas.",
+    "status": "Alias comunitario; usar búsqueda/investigación cuando esté disponible."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/analyst",
+    "description": "Analizar información o datos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/compare",
+    "description": "Comparar opciones con criterios definidos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/proscons",
+    "description": "Mostrar ventajas y desventajas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/table",
+    "description": "Convertir información en tabla.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/json",
+    "description": "Solicitar salida estructurada en JSON.",
+    "status": "Formato de salida."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/csv",
+    "description": "Solicitar datos en formato CSV.",
+    "status": "Formato de salida."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/extract",
+    "description": "Extraer datos o afirmaciones de una fuente.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/data-clean",
+    "description": "Limpiar y normalizar datos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/dashboardanalysis",
+    "description": "Interpretar indicadores de un tablero.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/swot",
+    "description": "Analizar fortalezas, oportunidades, debilidades y amenazas.",
+    "status": "Método estratégico."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/pestle",
+    "description": "Analizar factores políticos, económicos, sociales, tecnológicos, legales y ambientales.",
+    "status": "Método estratégico."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/fiveforces",
+    "description": "Aplicar las cinco fuerzas de Porter.",
+    "status": "Método estratégico."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/marketmap",
+    "description": "Representar actores y segmentos de un mercado.",
+    "status": "Método de análisis."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/insights",
+    "description": "Extraer hallazgos relevantes.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/recommendations",
+    "description": "Proponer recomendaciones justificadas.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/sources",
+    "description": "Identificar fuentes consultables.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Investigación y análisis de datos",
+    "code": "/timeline",
+    "description": "Ordenar hechos cronológicamente.",
+    "status": "Formato de análisis."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/debug",
+    "description": "Localizar y corregir errores de código.",
+    "status": "Alias comunitario; necesita código y contexto."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/code",
+    "description": "Generar o explicar código.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/refactor",
+    "description": "Reorganizar código sin cambiar su comportamiento previsto.",
+    "status": "Práctica de desarrollo."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/review",
+    "description": "Revisar código; en ciertos entornos también es comando de interfaz.",
+    "status": "Ambiguo: alias o comando de entorno."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/test",
+    "description": "Diseñar o ejecutar pruebas si hay herramientas disponibles.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/unit-test",
+    "description": "Crear pruebas unitarias.",
+    "status": "Práctica de desarrollo."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/api",
+    "description": "Diseñar, explicar o documentar una API.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/sql",
+    "description": "Escribir o revisar consultas SQL.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/regex",
+    "description": "Crear o explicar expresiones regulares.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/architecture",
+    "description": "Diseñar arquitectura de software.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/reverse-engineer",
+    "description": "Inferir estructura desde comportamiento o artefactos observables.",
+    "status": "Método técnico; límites de evidencia."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/root-cause",
+    "description": "Investigar causa raíz de fallos.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/security-audit",
+    "description": "Revisar riesgos de seguridad de un sistema autorizado.",
+    "status": "Alias comunitario; no sustituye auditoría profesional."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/threat-model",
+    "description": "Modelar amenazas, activos y mitigaciones.",
+    "status": "Método de seguridad."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/documentation",
+    "description": "Generar documentación técnica.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/git",
+    "description": "Explicar o proponer operaciones Git.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/mermaid",
+    "description": "Crear diagramas mediante sintaxis Mermaid.",
+    "status": "Formato de diagrama."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/architecture-diagram",
+    "description": "Representar componentes e interacciones de un sistema.",
+    "status": "Alias comunitario."
+  },
+  {
+    "category": "Programación y sistemas",
+    "code": "/api-spec",
+    "description": "Crear especificaciones de API.",
+    "status": "Alias comunitario."
+  },lo.",
+    "status": "Alias de concepto."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/packshot",
+    "description": "Crear fotografía limpia de producto.",
+    "status": "Término de fotografía comercial."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/floatingproduct",
+    "description": "Mostrar producto flotando en composición publicitaria.",
+    "status": "Alias visual."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/productbundle",
+    "description": "Componer varios productos como paquete.",
+    "status": "Alias visual."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/mockup",
+    "description": "Crear una maqueta visual de un producto o interfaz.",
+    "status": "Término de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/magazinecover",
+    "description": "Diseñar portada de revista.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/newspaperad",
+    "description": "Diseñar anuncio con estética de periódico.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/3dbillboard",
+    "description": "Crear concepto de anuncio espectacular 3D.",
+    "status": "Alias de diseño; no garantiza ilusión anamórfica real."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/brandkit",
+    "description": "Desarrollar kit visual de marca.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/poster",
+    "description": "Diseñar cartel o póster.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/thumbnail",
+    "description": "Crear miniatura para video o publicación.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/pointingthumbnail",
+    "description": "Componer miniatura con persona señalando un elemento.",
+    "status": "Alias de composición."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/bigfacethumbnail",
+    "description": "Crear miniatura con rostro grande y expresivo.",
+    "status": "Alias de composición."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/conceptthumbnail",
+    "description": "Crear miniatura conceptual.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/thumbnailvariations",
+    "description": "Proponer variantes de miniatura.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/designcarousel",
+    "description": "Diseñar carrusel para redes sociales.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/designslides",
+    "description": "Diseñar diapositivas.",
+    "status": "Alias de diseño."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/broll",
+    "description": "Proponer tomas de apoyo para un video.",
+    "status": "Término audiovisual."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/minimalist",
+    "description": "Aplicar estética minimalista.",
+    "status": "Alias de estilo."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/studio",
+    "description": "Simular fotografía de estudio.",
+    "status": "Alias de estilo."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/oldmoney",
+    "description": "Aplicar estética clásica discreta conocida como old money.",
+    "status": "Alias de estilo; etiqueta subjetiva."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/neon",
+    "description": "Aplicar estética de neón.",
+    "status": "Alias de estilo."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/coverstory",
+    "description": "Diseñar imagen con estética de portada editorial.",
+    "status": "Alias de estilo."
+  },
+  {
+    "category": "Publicidad, productos y diseño",
+    "code": "/noslop",
+    "description": "Pedir contenido menos genérico y más específico.",
+    "status": "Alias comunitario; definir criterios."
+  }
+];
+const results=document.getElementById('results'), q=document.getElementById('q'), cat=document.getElementById('cat'), kind=document.getElementById('kind'), empty=document.getElementById('empty');
+const officialNames=new Set(["/approve","/archive","/chat","/cloud","/cloud-environment","/compact","/fast","/feedback","/fork","/goal","/ide-context","/init","/local","/mcp","/memories","/model","/new","/pet","/pin","/plan","/project","/reasoning","/rename","/review","/side","/status","/usage","/worktree","$skill","@app"]);
+const uncertainNames=new Set(["/ultimate","/transferbg","/oldphoto","/xray","/x-ray","/doubleexposureviral","/review"]);
+const cats=[...new Set(DATA.map(x=>x.category))];
+cats.forEach(c=>{let o=document.createElement('option');o.value=c;o.textContent=c;cat.appendChild(o)});
+function status(x){if(officialNames.has(x.code))return 'official';if(uncertainNames.has(x.code))return 'uncertain';return 'community'}
+function makePrompt(x){return `${x.code}\nInterpreta esta etiqueta como la siguiente instrucción: ${x.description}\nAplica esa instrucción a esta tarea: [ESCRIBE AQUÍ TU TEMA O PEGA EL MATERIAL].\nRespeta el contexto y declara cualquier límite o dato que no puedas comprobar.`}
+function copyText(t,btn){navigator.clipboard?.writeText(t).then(()=>{let old=btn.textContent;btn.textContent='Copiado';setTimeout(()=>btn.textContent=old,1200)}).catch(()=>{prompt('Copia el texto:',t)})}
+function render(){
+ let term=q.value.toLowerCase().trim();
+ let arr=DATA.filter(x=>(!cat.value||x.category===cat.value)&&(!kind.value||status(x)===kind.value)&&(!term||(x.code+' '+x.description+' '+x.category+' '+x.status).toLowerCase().includes(term)));
+ results.innerHTML='';
+ arr.forEach(x=>{
+  let s=status(x), card=document.createElement('article');card.className='item';
+  let top=document.createElement('div');top.className='top';
+  let code=document.createElement('div');code.className='code';code.textContent=x.code;
+  let tag=document.createElement('span');tag.className='tag '+s;tag.textContent=s==='official'?'Interfaz documentada':s==='uncertain'?'Ambiguo / definir':'Atajo, método o formato';
+  top.append(code,tag);
+  let desc=document.createElement('div');desc.className='desc';desc.textContent=x.description;
+  let meta=document.createElement('div');meta.className='meta';let c=document.createElement('span');c.className='tag';c.textContent=x.category;let st=document.createElement('span');st.className='tag';st.textContent=x.status;meta.append(c,st);
+  let actions=document.createElement('div');actions.className='actions';
+  let b1=document.createElement('button');b1.textContent='Copiar código';b1.onclick=()=>copyText(x.code,b1);
+  let b2=document.createElement('button');b2.textContent='Copiar instrucción lista';b2.onclick=()=>copyText(makePrompt(x),b2);
+  actions.append(b1,b2);card.append(top,desc,meta,actions);results.append(card);
+ });
+ empty.style.display=arr.length?'none':'block';
+ document.getElementById('countAll').textContent=DATA.length;
+}
+[q,cat,kind].forEach(el=>el.addEventListener('input',render));
+document.getElementById('clear').onclick=()=>{q.value='';cat.value='';kind.value='';render()};
+render();
+</script>
+</body></html>
